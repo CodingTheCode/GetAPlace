@@ -14,7 +14,7 @@ class Local(models.Model):
     cidade = models.CharField(max_length=64)
     estado = models.CharField(max_length=64)
     pais = models.CharField(max_length=64)
-    atributos = models.ManyToManyField('Atributo')
+    atributos = models.ManyToManyField('Atributo', null=True, blank=True)
 
 
 # Características de locais

@@ -12,3 +12,7 @@
 .navbar-nav a{
 	margin-left:20px;
 }
+
+.carousel-caption{
+	font-size:xx-large !important;
+}

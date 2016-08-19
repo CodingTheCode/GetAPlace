@@ -19,5 +19,12 @@
 
 .carousel-inner{
 	display:flex;
-	justify-content: center;
+	justify-content:center;
+}
+
+.attribute-tag{
+	display:inline;
+	background-color:#CCC;
+	padding: 10px;
+	border-radius: 5px;
 }

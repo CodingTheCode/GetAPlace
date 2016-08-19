@@ -16,3 +16,8 @@
 .carousel-caption{
 	font-size:xx-large !important;
 }
+
+.carousel-inner{
+	display:flex;
+	justify-content: center;
+}

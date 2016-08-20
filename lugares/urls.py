@@ -10,6 +10,3 @@ urlpatterns = [
     url(r'^reviews/$', views.reviews_criar),
     url(r'^login/$', views.OnePageAppView.as_view(), name='home'),
 ]
-from django.conf.urls import patterns, include, url
-
-from . import views

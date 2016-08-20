@@ -33,7 +33,7 @@
                 <li><a href="#" class="link">DEPOIMENTOS</a></li>
                 <li><a href="#" class="link">BUSCA</a></li>
                 <li><a href="#" class="link">MAPA</a></li>
-                <li><a href="login.html">LOGIN</a></li>
+                <li><a href="login.html" class="link_login">LOGIN</a></li>
               </ul>
             </div>
         </div>
@@ -88,9 +88,9 @@
       <main class="container">
         <form class="form-inline" ng-submit="pesquisarTags()">
           <h2>Ache um lugar</h2>
-          <div class="attribute-tag">Silencioso</div>
-          <div class="attribute-tag">Com wi-fi</div>
-          <div class="attribute-tag">Com tomadas</div>
+          <a href="#" class="textatt"><div class="attribute-tag visited">SILENCIOSO</div></a>
+          <a href="#" class="textatt"><div class="attribute-tag visited">COM WI-FI</div></a>
+          <a href="#" class="textatt"><div class="attribute-tag visited">COM TOMADAS</div></a>
           <p><br />em
             <input type="text" class="form-control" name="bairro" placeholder="Bairro" ng-model='bairro' /> -
             <input type="text" class="form-control" name="cidade" placeholder="Cidade" ng-model='cidade' /> -
@@ -106,17 +106,20 @@
     <div class="container">
       <p>Lugares que o <em>Get a Place</em> achou para você:</p>
 
-      <div ng-controller="ResourceController">
-        <div class="row">
-          <div ng-repeat="x in espacos">
-            <div class="col-sm-4 well">
-              <p class="result-title">{{x.bairro}} - {{x.cidade}} ({{x.estado}}) - {{x.pais}}</p>
-              <p>{{x.endereco}}</p>
-              <p>{{x.dono.email}}</p>
+      
+          <div ng-controller="ResourceController">
+            <div class="row">
+              <div ng-repeat="x in espacos">
+              <a href="#" class="lugares">
+                <div class="col-sm-4 well">
+                  <p class="result-title">{{x.bairro}} - {{x.cidade}} ({{x.estado}}) - {{x.pais}}</p>
+                  <p>{{x.endereco}}</p>
+                </div>
+                </a>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
+      
 
       <div ng-controller="LocalUnicoController"></div>
 
@@ -125,7 +128,7 @@
 
     <footer class="footer">
       <div class="container panel panel-default">
-        <p><span class="glyphicon glyphicon-copyright-mark"></span> 2016 Igor Miyamura, Jonas de Oliveira, Laury Bueno, Leonardo Piccioni, Lucas Covre.</p>
+        <p> &copy; 2016 Igor Miyamura, Jonas de Oliveira, Laury Bueno, Leonardo Piccioni, Lucas Covre.</p>
       </div>
     </footer>
 

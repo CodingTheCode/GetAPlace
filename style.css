@@ -1,5 +1,10 @@
 @charset "utf-8";
 /* CSS Document */
+@import 'https://fonts.googleapis.com/css?family=Quicksand:300,400,700';
+
+body, h1, h2, h3, h4, h5, h6, p, a {
+	font-family: 'Quicksand', sans-serif !important;
+	}
 
 .logo{
 	height:100%;
@@ -30,8 +35,9 @@
 }
 
 .navbar-brand img{
-	padding:0px;
-	height:100%;
+	padding: 0px;
+    height: 155%;
+    margin-top: -5px;
 }
 
 .navbar-nav a{
@@ -61,7 +67,7 @@
 	width:100% !important;
 }
 
-h2{
+h1, h2, h3, h4 , h5, h6{
 	color:#442684 !important;
 }
 
@@ -96,4 +102,49 @@ a.link:hover{
 .carousel-inner .item .bg-textoimg {
 	background-color: rgba(111,111,111,0.5);
 	padding: 20px;
+}
+
+a.textatt {
+	color:#000000;
+	text-decoration:none;
+}
+
+a.textatt:hover {
+	
+	text-decoration:none;
+}
+
+.attribute-tag.visited,
+.attribute-tag:hover {
+	color:#FFFFFF;
+	background-color:#442684;	
+}
+
+a.lugares {
+	color:#000000;	
+}
+
+a.lugares:hover {
+	color:#442684;	
+}
+
+a.link_login {
+	margin-left:680px;
+}
+
+a.link_login:hover {
+	background-color:#FFFFFF !important;
+	color:#B800FF !important;
+}
+
+form.form-inline {
+	text-align:center;
+}
+
+form.form-inline h2 {
+	margin:35px 0px 30px 0px;
+}
+
+form.form-inline p {
+	margin: 25px 0;
 }

@@ -32,6 +32,14 @@ app.controller('BuscaTagsController', function($scope, BuscaTags){
 
 
   $scope.pesquisarTags = function() {
+    if($scope.id==null) $scope.id='_';
+    if($scope.nome==null) $scope.nome='_';
+    if($scope.endereco==null) $scope.endereco='_';
+    if($scope.bairro==null) $scope.bairro='_';
+    if($scope.cidade==null) $scope.cidade='_';
+    if($scope.estado==null) $scope.estado='_';
+    if($scope.pais==null) $scope.pais='_';
+    if($scope.tag==null) $scope.tag='_';
     var reviews = BuscaTags.query({ id: $scope.id ,nome: $scope.nome, endereco: $scope.endereco, bairro: $scope.bairro, cidade: $scope.bairro, estado: $scope.estado, pais: $scope.pais, tags: $scope.tag }, function() {
       //nome, endereco, bairro, cidade, estado, pais, tag(separado por virgulas)
       //console.log(reviews);

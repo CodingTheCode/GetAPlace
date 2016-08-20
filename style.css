@@ -169,3 +169,7 @@ form.form-inline p {
 .login {
 	margin-top:100px;	
 }
+
+.form-control {
+	margin-top: 10px;	
+}

@@ -106,37 +106,35 @@
     </div>
     <div class="container">
       <p>Espaços que o <em>Get a Place</em> achou para você:</p>
-
       
           <div ng-controller="ResourceController">
             <div class="row">
               <div ng-repeat="x in espacos">
-              <a href="#" class="lugares">
-                <div class="col-sm-4 well">
-                  <p class="result-title">{{x.bairro}} - {{x.cidade}} ({{x.estado}}) - {{x.pais}}</p>
-                  <p>{{x.endereco}}</p>
-                </div>
+                <a ng-click="atualizaId($index)" class="lugares">
+                  <div class="col-sm-4 well">
+                    <p class="result-title">{{x.bairro}} - {{x.cidade}} ({{x.estado}}) - {{x.pais}}</p>
+                    <p>{{x.endereco}}</p>
+                  </div>
                 </a>
               </div>
             </div>
-          </div>
-      
 
-      <hr />
-
-      <div ng-controller="LocalUnicoController">
-        <div ng-show="espaco != null">
-          <p>Mostrando detalhes para espaço "<b>{{espaco.nome}}</b>".</p>
-          <p><b>Endereço:</b> {{espaco.endereco}}</p>
-          <p>{{espaco.bairro}} - {{espaco.cidade}} ({{espaco.estado}}) - {{espaco.pais}}</p>
-          <p><b>Dono:</b> {{espaco.dono.nome}} <{{espaco.dono.email}}></p>
-          <p ng-show="espaco.atributos.length"><b>Atributos do espaço:</b></p>
-          <ul ng-repeat="x in espaco.atributos">
-            <li>{{x.nome}}</li>
+            <hr />
+            
+            <div ng-show="espaco != null">
+              <p>Mostrando detalhes para espaço "<b>{{espaco.nome}}</b>".</p>
+              <p><b>Endereço:</b> {{espaco.endereco}}</p>
+              <p>{{espaco.bairro}} - {{espaco.cidade}} ({{espaco.estado}}) - {{espaco.pais}}</p>
+              <p><b>Dono:</b> {{espaco.dono.nome}} <{{espaco.dono.email}}></p>
+              <p ng-show="espaco.atributos.length"><b>Atributos do espaço:</b></p>
+              <ul ng-repeat="x in espaco.atributos">
+                <li>{{x.nome}}</li>
+              </ul>  
+            </div>
         </div>
-      </div>
 
       <div ng-controller="ReviewsLocalController">
+        <br />
         <h4>Reviews</h4>
         <div ng-repeat="review in reviews">
           <div class="panel panel-default">
@@ -155,7 +153,6 @@
         <p> &copy; 2016 Igor Miyamura, Jonas de Oliveira, Laury Bueno, Leonardo Piccioni, Lucas Covre.</p>
       </div>
     </footer>
-
 
   </body>
 </html>

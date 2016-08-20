@@ -127,7 +127,8 @@
             <div ng-repeat="x in espacos" class="lug">
               <a ng-click="atualizaId($index)" class="lugares">
                 <div class="col-sm-4 well">
-                  <p class="result-title">{{x.bairro}} - {{x.cidade}} ({{x.estado}}) - {{x.pais}} - {{x.foto_local.foto}}</p>
+                  <p class="result-title">{{x.bairro}} - {{x.cidade}} ({{x.estado}}) - {{x.pais}} </p>
+                  <img src='{{x.foto_local.foto}}' width="42" height="42">
                   <p>{{x.endereco}}</p>
                 </div>
               </a>

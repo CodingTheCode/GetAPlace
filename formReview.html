@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="http://code.angularjs.org/1.4.8/angular-resource.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="controller/app.js"></script>
+    <script src="controller/controllers.js"></script>
+
+    <title>Get a Place</title>
+  </head>
+  <body  ng-app="meuLogin">
+    <div ng-controller="AdicionaReviewController">
+      <form class="form-inline" ng-submit="escreverReview()">
+        <h2>Deixe um review do local</h2>
+
+        <p><br />em
+          <input type="number" class="form-control" name="idAutor" placeholder="Id do autor" ng-model='idAutor' /> -
+          <input type="text" class="form-control" name="Local" placeholder="Local" ng-model='local' /> -
+          <input type="text" class="form-control" name="titulo" placeholder="Titulo" ng-model='titulo' /> -
+          <input type="text" class="form-control" name="comentario" placeholder="Comentário" ng-model='texto' /> -
+          <input type="text" class="form-control" name="avaliacao" placeholder="Avaliacao" ng-model='avaliacao' /> -
+          <button type='submit' class="form-control" >Enviar</button>
+        </p>
+      </form>
+  </div>

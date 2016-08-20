@@ -1,9 +1,9 @@
 app.controller('ResourceController', function($scope, Local, LocalEspecifico) {
   var locais = Local.query(function() {
-    console.log(locais);
+    //console.log(locais);
   });
   $scope.espacos = locais;
-  
+
   $scope.atualizaId = function(id){
     $scope.espaco = $scope.espacos[id];
   };
@@ -44,9 +44,12 @@ app.controller('BuscaTagsController', function($scope, BuscaTags){
   };
 });
 
-app.controller('AdicionaReviewController', function($scope, AdicionaReview){
-  var reviews = ReviewsLocal.query({local: $scope.local, autor: $scope.idAutor,  titulo: $scope.titulo, texto: $scope.texto, avaliacao: $scope.avaliacao}, function() {
-    //console.log(reviews
-  });
-  $scope.reviews = reviews;
+login.controller('AdicionaReviewController', function($scope, AdicionaReview){
+  console.log("bla");
+  $scope.escreverReview = function(){
+    var reviews = AdicionaReview.save({local: $scope.local, autor: $scope.idAutor,  titulo: $scope.titulo, texto: $scope.texto, avaliacao: $scope.avaliacao}, function() {
+      console.log(reviews);
+    });
+    $scope.reviews = reviews;
+  };
 });

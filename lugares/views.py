@@ -7,8 +7,13 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from lugares.models import Local, Review
 from lugares.serializers import LocalSerializer, ReviewSerializer
+from django.views.generic.base import TemplateView
 
 import json
+
+
+class OnePageAppView(TemplateView):
+    template_name = 'index.html'
 
 
 @csrf_exempt

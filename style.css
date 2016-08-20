@@ -27,8 +27,9 @@
 	color:#FFF !important;
 }
 
-.navbar-brand{
+.navbar-brand img{
 	padding:0px;
+	height:100%;
 }
 
 .navbar-nav a{
@@ -58,11 +59,27 @@
 	width:100% !important;
 }
 
+h2{
+	color:#442684 !important;
+}
+
 .attribute-tag{
 	display:inline;
 	background-color:#BBB;
 	padding: 10px;
 	border-radius: 5px;
+}
+
+.well{
+	margin:5px;
+}
+
+.result-title{
+	font-size:large;
+}
+
+footer{
+	margin-top:25px;
 }
 
 footer p{

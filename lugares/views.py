@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from lugares.models import Local, Review
+from lugares.models import Local, Review, Atributo
 from lugares.serializers import LocalSerializer, ReviewSerializer
 from django.views.generic.base import TemplateView
 
@@ -28,13 +28,14 @@ def lugares(request):
     elif(request.method == 'POST'):
         data = json.loads(request.body)
         dono_atual = User.objects.get(id=data['dono'])
-        novo_local = Local.objects.create(dono=dono_atual, nome=data['nome'], endereco=data['endereco'], bairro = data['bairro'], cidade=data['cidade'], estado=data['estado'], pais=data['pais'])
+        novo_local = Local.objects.create(dono=dono_atual, nome=data['nome'], endereco=data['endereco'], bairro=data['bairro'], cidade=data['cidade'], estado=data['estado'], pais=data['pais'])
 
         # Atributos
-        #
+        for atr in data['atributos']:
+            novo_local.atributos.add(Atributo.objects.get(nome=atr['nome']))
 
         serializer = LocalSerializer(novo_local)
-        return Response(serializer.data, status=status.HTTP_200_OK)
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
 
 
 @csrf_exempt

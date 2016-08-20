@@ -4,6 +4,7 @@ from lugares import views
 
 urlpatterns = [
     url(r'^$', views.lugares_list),
-    url(r'^busca/(?P<nome_busca>[\w ]+)/$', views.lugares_busca)
+    url(r'^busca/nome/(?P<nome_busca>[\w , _]+)/endereco/(?P<endereco_busca>[\w , _.]+)/bairro/(?P<bairro_busca>[\w , _]+)/cidade/(?P<cidade_busca>[\w , _]+)/estado/(?P<estado_busca>[\w , _]+)/pais/(?P<pais_busca>[\w , _]+)/tags/(?P<tags_busca>[\w , _]+)/$', views.lugares_busca)
+
     # url(r'^$', views.lugares_list),
 ]

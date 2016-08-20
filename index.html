@@ -93,6 +93,8 @@
           <a href="#" class="textatt"><div class="attribute-tag visited">COM TOMADAS</div></a>
 
           <p><br />em
+            <input type="text" class="form-control" name="nome" placeholder="Nome" ng-model='nome' /> -
+            <input type="text" class="form-control" name="endereco" placeholder="Endereco" ng-model='endereco' /> -
             <input type="text" class="form-control" name="bairro" placeholder="Bairro" ng-model='bairro' /> -
             <input type="text" class="form-control" name="cidade" placeholder="Cidade" ng-model='cidade' /> -
             <input type="text" class="form-control" name="estado" placeholder="Estado, ex: SP" ng-model='estado' /> -
@@ -107,7 +109,7 @@
     <div class="container">
       <p>Espaços que o <em>Get a Place</em> achou para você:</p>
 
-      
+
           <div ng-controller="ResourceController">
             <div class="row">
               <div ng-repeat="x in espacos">
@@ -120,7 +122,7 @@
               </div>
             </div>
           </div>
-      
+
 
       <hr />
 

@@ -8,7 +8,7 @@ urlpatterns = [
     url(r'^(?P<id>[0-9]+)/$', views.lugar),
     url(r'^reviews/(?P<id>[0-9]+)/$', views.reviews_lugar),
     url(r'^reviews/$', views.reviews_criar),
-    url(r'^$', views.OnePageAppView.as_view(), name='home'),
+    url(r'^login/$', views.OnePageAppView.as_view(), name='home'),
 ]
 from django.conf.urls import patterns, include, url
 

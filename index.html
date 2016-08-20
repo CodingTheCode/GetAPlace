@@ -2,7 +2,7 @@
 <html>
   <head>
 
-  <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
 
     <meta charset="utf-8">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -21,7 +21,7 @@
 
     <title>Get a Place</title>
   </head>
-  <body>
+  <body  ng-app="myApp" >
     <nav class="navbar-wrapper">
         <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="navbar-header">
@@ -78,22 +78,27 @@
       </div>
     </div>
 
-    <main class="container">
-      <form class="form-inline">
-        <h2>Ache um lugar</h2>
-        <div class="attribute-tag">Silencioso</div>
-        <div class="attribute-tag">Com wi-fi</div>
-        <div class="attribute-tag">Com tomadas</div>
-        <p><br />em
-          <input type="text" class="form-control" name="bairro" placeholder="Bairro" /> -
-          <input type="text" class="form-control" name="cidade" placeholder="Cidade" /> -
-          <input type="text" class="form-control" name="estado" placeholder="Estado, ex: SP" /> -
-          <input type="text" class="form-control" name="pais" placeholder="País" />.
-          <button class="form-control">Enviar</button></p>
-      </form>
-    </main>
+    <div>
+      <div ng-controller="BuscaTagsController">
+      <main class="container">
+        <form class="form-inline" ng-submit="pesquisarTags()">
+          <h2>Ache um lugar</h2>
+          <div class="attribute-tag">Silencioso</div>
+          <div class="attribute-tag">Com wi-fi</div>
+          <div class="attribute-tag">Com tomadas</div>
+          <p><br />em
+            <input type="text" class="form-control" name="bairro" placeholder="Bairro" ng-model='bairro' /> -
+            <input type="text" class="form-control" name="cidade" placeholder="Cidade" ng-model='cidade' /> -
+            <input type="text" class="form-control" name="estado" placeholder="Estado, ex: SP" ng-model='estado' /> -
+            <input type="text" class="form-control" name="pais" placeholder="País" ng-model='pais'/>.
+            <button type='submit' class="form-control" >Enviar</button>
+          </p>
+        </form>
+      </main>
 
-    <div ng-app="myApp" >
+      </div>
+
+
       <div ng-controller="ResourceController">
         <ul>
           <li ng-repeat="x in espacos">
@@ -108,8 +113,7 @@
       <div ng-controller="ReviewsLocalController">
       </div>
 
-      <div ng-controller="BuscaTagsController">
-      </div>
+
 
     </div>
 

@@ -2,9 +2,10 @@
 <html>
   <head>
 
-    <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" type="text/css" href="style.css">
 
 	<script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js'></script>
+
 
     <script type="text/javascript">
 	jQuery(document).ready(function($) {
@@ -117,6 +118,7 @@
 
       <hr />
 
+
       <div class="container">
         <p>Espaços que o <em>Get a Place</em> achou para você:</p>
 
@@ -132,6 +134,7 @@
             </div>
 
             <div ng-show="espaco != null" class="detalhes">
+
               <p id="Tres">Mostrando detalhes para espaço "<b>{{espaco.nome}}</b>".</p>
               <p><b>Endereço:</b> {{espaco.endereco}}</p>
               <p>{{espaco.bairro}} - {{espaco.cidade}} ({{espaco.estado}}) - {{espaco.pais}}</p>

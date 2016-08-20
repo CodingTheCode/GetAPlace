@@ -22,17 +22,17 @@
     <title>Get a Place</title>
   </head>
   <body  ng-app="myApp" >
-    <nav class="navbar-wrapper">
+    <nav class="navbar-wrapper" id="Um">
         <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="navbar-header">
               <a class="navbar-brand"><img src="assets/img/logo.png"></a>
             </div>
             <div class="navbar-collapse collapse">
               <ul class="nav navbar-nav" style="margin-top: 10px;">
-                <li><a href="#" class="link">HOME</a></li>
-                <li><a href="#" class="link">DEPOIMENTOS</a></li>
-                <li><a href="#" class="link">BUSCA</a></li>
-                <li><a href="#" class="link">MAPA</a></li>
+                <li><a href="#Um" class="link">HOME</a></li>
+                <li><a href="#Dois" class="link">LUGARES</a></li>
+                <li><a href="#Tres" class="link">DEPOIMENTOS</a></li>
+                <li><a href="#Quatro" class="link">MAPA</a></li>
                 <li><a href="login.html" class="link_login">LOGIN</a></li>
               </ul>
             </div>
@@ -65,7 +65,7 @@
             <div class="item">
               <img src="assets/img/carousel3.png">
               <div class="carousel-caption">
-              	<p class="bg-textoimg">... Para o fim que você precisa!</p>
+              	<p class="bg-textoimg" >... Para o fim que você precisa!</p>
               </div>
             </div>
           </div>
@@ -78,7 +78,7 @@
         </a>
         <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
           <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
+          <span class="sr-only" >Next</span>
         </a>
       </div>
     </div>
@@ -87,7 +87,7 @@
     <div ng-controller="BuscaTagsController">
       <main class="container">
         <form class="form-inline" ng-submit="pesquisarTags()">
-          <h2>Ache um lugar</h2>
+          <h2 id="Dois">Ache um lugar</h2>
           <a href="#" class="textatt"><div class="attribute-tag visited">SILENCIOSO</div></a>
           <a href="#" class="textatt"><div class="attribute-tag visited">COM WI-FI</div></a>
           <a href="#" class="textatt"><div class="attribute-tag visited">COM TOMADAS</div></a>
@@ -128,7 +128,7 @@
 
       <div ng-controller="LocalUnicoController">
         <div ng-show="espaco != null">
-          <p>Mostrando detalhes para espaço "<b>{{espaco.nome}}</b>".</p>
+          <p id="Tres">Mostrando detalhes para espaço "<b>{{espaco.nome}}</b>".</p>
           <p><b>Endereço:</b> {{espaco.endereco}}</p>
           <p>{{espaco.bairro}} - {{espaco.cidade}} ({{espaco.estado}}) - {{espaco.pais}}</p>
           <p><b>Dono:</b> {{espaco.dono.nome}} <{{espaco.dono.email}}></p>
@@ -151,10 +151,13 @@
         </div>
       </div>
     </div>
+	
+    <h2 class="maplug" id="Quatro">Mapa de lugares</h2>
+	<iframe src="http://maps.google.com/maps?q=12.927923,77.627108&z=15&output=embed" class="map"></iframe>
 
     <footer class="footer">
       <div class="container panel panel-default">
-        <p> &copy; 2016 Igor Miyamura, Jonas de Oliveira, Laury Bueno, Leonardo Piccioni, Lucas Covre.</p>
+        <p class="rodape"> &copy; 2016 Igor Miyamura, Jonas de Oliveira, Laury Bueno, Leonardo Piccioni, Lucas Covre.</p>
       </div>
     </footer>
 

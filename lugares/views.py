@@ -38,6 +38,20 @@ def reviews_lugar(request, id):
     serializer = ReviewSerializer(reviews, many=True)
     return Response(serializer.data, status=status.HTTP_200_OK)
 
+#cria uma nova locação
+@csrf_exempt
+@api_view(['POST'])
+def locacao_criar(request):
+    local_locacao = Local.objects.get(id=request.data['local'])
+    loocador = User.objects.get(id=request.data['locador'])
+    locatario = User.objects.get(id=request.data['locatario'])
+    horaInicio = request.data['inicio']
+    horaFim = request.data['fim']
+    valor = request.data['valor']
+    novaLocacao = Review.objects.create(local=local_locacao,locador=locador,
+        locatario=locatario, horaInicio=horaInicio, horaFim=horaFim, valor=valor)
+    serializer = ReviewSerializer(novaLocacao)
+    return Response(serializer.data, status=status.HTTP_200_OK)
 
 # Cria uma nova review
 @csrf_exempt
@@ -49,7 +63,28 @@ def reviews_criar(request):
     serializer = ReviewSerializer(nova_review)
     return Response(serializer.data, status=status.HTTP_200_OK)
 
+#busca um registro de locação baseado em parâmetros
+@csrf_exempt
+@api_view(['GET'])
+def locacao_busca(request, locacao_nome_busca, locacao_bairro_busca,locacao_tags_busca):
+    locacoes =  Locacao.objects.all()
 
+    if(locacao_nome_busca !="_"):
+        locacoesTemp = Locacao.objects.filter(locacao__nome__istartswith=locacao_nome_busca)
+        locais = list(set(locais) & set(locaisTemp))
+
+    if(locacao_bairro_busca !="_"):
+        locacoesTemp = Locacao.objects.filter(locacao__bairro__istartswith=locacao_bairro_busca)
+        locais = list(set(locais) & set(locaisTemp))
+
+    if(locacao_tags_busca != "_"):
+        listaTags = tags_busca.split(",")
+        for tag in listaTags:
+            locaisTemp = Locacao.objects.filter(atributos__nome__istartswith=tag)
+            locais = list(set(locais) & set(locaisTemp))
+
+
+#busca registos de locais baseado e todos os campos de busca
 @csrf_exempt
 @api_view(['GET'])
 def lugares_busca(request, nome_busca, endereco_busca, bairro_busca, cidade_busca,

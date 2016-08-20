@@ -16,11 +16,9 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
-from lugares import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     url(r'^api/lugares/', include('lugares.urls')),
-    url(r'^api/lugares/busca/(?P<nome_busca>[\w ]+)/$', views.lugares_busca )
 ]

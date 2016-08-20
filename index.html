@@ -4,11 +4,11 @@
 
     <link rel="stylesheet" type="text/css" href="style.css">
 
-	<script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js'></script>
-    
+	<script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js'></script>
+
     <script type="text/javascript">
-	jQuery(document).ready(function($) { 
-		$(".scroll").click(function(event){        
+	jQuery(document).ready(function($) {
+		$(".scroll").click(function(event){
 			event.preventDefault();
 			$('html,body').animate({scrollTop:$(this.hash).offset().top}, 800);
 	   });
@@ -17,8 +17,8 @@
 
     <meta charset="utf-8">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-    <script src="http://code.angularjs.org/1.4.8/angular-resource.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="https://code.angularjs.org/1.4.8/angular-resource.js"></script>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
@@ -93,7 +93,7 @@
         </a>
       </div>
     </div>
-    
+
     <div ng-controller="ResourceController">
       <main class="container">
         <form class="form-inline" ng-submit="pesquisarTags()">
@@ -114,13 +114,13 @@
           </p>
         </form>
       </main>
-    
+
       <hr />
 
       <div class="container">
         <p>Espaços que o <em>Get a Place</em> achou para você:</p>
 
-          
+
           <div class="row">
             <div ng-repeat="x in espacos" class="lug">
               <a ng-click="atualizaId($index)" class="lugares">
@@ -130,7 +130,7 @@
                 </div>
               </a>
             </div>
-            
+
             <div ng-show="espaco != null" class="detalhes">
               <p id="Tres">Mostrando detalhes para espaço "<b>{{espaco.nome}}</b>".</p>
               <p><b>Endereço:</b> {{espaco.endereco}}</p>
@@ -139,7 +139,7 @@
               <p ng-show="espaco.atributos.length"><b>Atributos do espaço:</b></p>
               <ul ng-repeat="x in espaco.atributos">
                 <li>{{x.nome}}</li>
-              </ul>  
+              </ul>
             </div>
           </div>
         </div>
@@ -158,7 +158,7 @@
         </div>
       </div>
     </div>
-	
+
     <h2 class="maplug" id="Quatro">Mapa de lugares</h2>
 	<iframe src="http://maps.google.com/maps?q=12.927923,77.627108&z=15&output=embed" class="map"></iframe>
 

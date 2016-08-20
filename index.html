@@ -25,7 +25,7 @@
     <nav class="navbar-wrapper">
         <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="navbar-header">
-              <a class="navbar-brand"><img src="assets/img/logo.png" class="logo" /></a>
+              <a class="navbar-brand">Get a Place</a>
             </div>
             <div class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
@@ -93,13 +93,29 @@
       </form>
     </main>
 
-    <div ng-app="myApp" ng-controller="ResourceController">
-      <ul>
-        <li ng-repeat="x in espacos">
-          {{ 'Pais: '+ x.pais +', estado: '+ x.estado +', cidade: '+ x.cidade +', bairro: '+ x.bairro +', endereço: '+ x.endereco +', dono: '+ x.dono.email}}
-        </li>
-      </ul>
+    <div ng-app="myApp" >
+      <div ng-controller="ResourceController">
+        <ul>
+          <li ng-repeat="x in espacos">
+            {{ 'Pais: '+ x.pais +', estado: '+ x.estado +', cidade: '+ x.cidade +', bairro: '+ x.bairro +', endereço: '+ x.endereco +', dono: '+ x.dono.email}}
+          </li>
+        </ul>
+      </div>
+
+      <div ng-controller="LocalUnicoController">
+        <ul>
+          <li ng-repeat="x in espacos">
+            {{ 'Pais: '+ x.pais   }}
+          </li>
+        </ul>
+      </div>
     </div>
+
+
+
+
+
+
 
     <footer class="footer">
       <div class="container panel panel-default">

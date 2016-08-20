@@ -4,3 +4,12 @@ app.controller('ResourceController', function($scope, Local) {
   });
   $scope.espacos = locais;
 });
+
+app.controller('LocalUnicoController',function($scope, LocalEspecifico) {
+  $scope.id=1;
+  var entry = LocalEspecifico.get({ id: $scope.id }, function() {
+    console.log(entry);
+  });
+
+  $scope.espaco = entry;
+});

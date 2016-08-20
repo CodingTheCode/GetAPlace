@@ -47,8 +47,6 @@ class Review(models.Model):
 # Caracteristicas de uma locação
 class Locacao(models.Model):
     localLocacao = models.ForeignKey(Local, related_name='locacao')
-    locador =  models.ForeignKey(settings.AUTH_USER_MODEL, related_name='imovel_locado')
-    locatario =  models.ForeignKey(settings.AUTH_USER_MODEL, related_name='imovel_alugado')
-    horaInicio = models.DateField('dataInicio', default=timezone.now())
-    horaFim = models.DateField('dataFim', default=timezone.now())
+    locatario = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='imovel_aluc')
+    dataDaLocacao = models.DateField('dataInicio', default=timezone.now())
     valor = models.DecimalField(max_digits=8, decimal_places=2)

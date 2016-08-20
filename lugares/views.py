@@ -59,13 +59,11 @@ def reviews_lugar(request, id):
 @api_view(['POST'])
 def locacao_criar(request):
     local_locacao = Local.objects.get(id=request.data['local'])
-    loocador = User.objects.get(id=request.data['locador'])
     locatario = User.objects.get(id=request.data['locatario'])
-    horaInicio = request.data['inicio']
-    horaFim = request.data['fim']
+    diaLocacao = request.data['dataDaLocacao']
     valor = request.data['valor']
-    novaLocacao = Review.objects.create(local=local_locacao,locador=locador,
-        locatario=locatario, horaInicio=horaInicio, horaFim=horaFim, valor=valor)
+    novaLocacao = Review.objects.create(local=local_locacao, locatario=locatario,
+        dataDaLocacao=dataDaLocacao, valor=valor)
     serializer = ReviewSerializer(novaLocacao)
     return Response(serializer.data, status=status.HTTP_200_OK)
 

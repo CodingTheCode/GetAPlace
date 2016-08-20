@@ -38,7 +38,7 @@
             </div>
         </div>
     </nav>
-    
+
       <div class="carousel slide">
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
           <!-- Indicators -->
@@ -53,7 +53,7 @@
             <div class="item active">
               <img src="assets/img/carousel1.png">
               <div class="carousel-caption">
-              	<p class="bg-textoimg">Encontre um lugar próximo a você...</p>
+              	<p class="bg-textoimg">Encontre um espaço próximo a você...</p>
               </div>
             </div>
             <div class="item">
@@ -87,7 +87,7 @@
     <div ng-controller="BuscaTagsController">
       <main class="container">
         <form class="form-inline" ng-submit="pesquisarTags()">
-          <h2>Ache um lugar</h2>
+          <h2>Ache um espaço</h2>
           <div class="attribute-tag">Silencioso</div>
           <div class="attribute-tag">Com wi-fi</div>
           <div class="attribute-tag">Com tomadas</div>
@@ -104,7 +104,7 @@
       <hr />
     </div>
     <div class="container">
-      <p>Lugares que o <em>Get a Place</em> achou para você:</p>
+      <p>Espaços que o <em>Get a Place</em> achou para você:</p>
 
       <div ng-controller="ResourceController">
         <div class="row">
@@ -118,9 +118,32 @@
         </div>
       </div>
 
-      <div ng-controller="LocalUnicoController"></div>
+      <hr />
 
-      <div ng-controller="ReviewsLocalController"></div>
+      <div ng-controller="LocalUnicoController">
+        <div ng-show="espaco != null">
+          <p>Mostrando detalhes para espaço "<b>{{espaco.nome}}</b>".</p>
+          <p><b>Endereço:</b> {{espaco.endereco}}</p>
+          <p>{{espaco.bairro}} - {{espaco.cidade}} ({{espaco.estado}}) - {{espaco.pais}}</p>
+          <p><b>Dono:</b> {{espaco.dono.nome}} <{{espaco.dono.email}}></p>
+          <p ng-show="espaco.atributos.length"><b>Atributos do espaço:</b></p>
+          <ul ng-repeat="x in espaco.atributos">
+            <li>{{x.nome}}</li>
+        </div>
+      </div>
+
+      <div ng-controller="ReviewsLocalController">
+        <h4>Reviews</h4>
+        <div ng-repeat="review in reviews">
+          <div class="panel panel-default">
+            <div class="panel-heading">{{review.titulo}}</div>
+            <div class="panel-body">
+              <p>Veredito: <b>{{review.avaliacao | uppercase}}</b>.</p>
+              <p>{{review.texto}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <footer class="footer">

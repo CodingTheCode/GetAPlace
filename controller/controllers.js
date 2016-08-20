@@ -16,9 +16,9 @@ app.controller('LocalUnicoController',function($scope, LocalEspecifico) {
 app.controller('ReviewsLocalController', function($scope, ReviewsLocal){
   $scope.id=1;
   var reviews = ReviewsLocal.query({ id: $scope.id }, function() {
-    //console.log(reviews);
+    console.log(reviews);
   });
-  $scope.espaco = reviews;
+  $scope.reviews = reviews;
 });
 
 app.controller('BuscaTagsController', function($scope, BuscaTags){
@@ -38,6 +38,13 @@ app.controller('BuscaTagsController', function($scope, BuscaTags){
     });
       $scope.espaco = reviews;
   };
+});
+
+app.controller('AdicionaReviewController', function($scope, AdicionaReview){
+  var reviews = ReviewsLocal.query({ id: $scope.id }, function() {
+    //console.log(reviews);
+  });
+  $scope.reviews = reviews;
 });
 
 login.controller("logar", function($scope){

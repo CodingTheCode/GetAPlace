@@ -5,7 +5,7 @@ from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from lugares.models import Local
-from lugares.serializers import LocalSerializer
+from lugares.serializers import LocalSerializer, ReviewSerializer
 
 
 @csrf_exempt
@@ -15,6 +15,25 @@ def lugares_list(request):
     locais = Local.objects.all()[:30]
     serializer = LocalSerializer(locais, many=True)
     return Response(serializer.data, status=status.HTTP_200_OK)
+
+
+@csrf_exempt
+@api_view(['GET'])
+def lugar(request, id):
+
+    local = Local.objects.get(id=id)
+    serializer = LocalSerializer(local)
+    return Response(serializer.data, status=status.HTTP_200_OK)
+
+
+# Retorna todos os reviews de um local baseado em seu id
+@csrf_exempt
+@api_view(['GET'])
+def reviews_lugar(request, id):
+    reviews = Local.objects.get(id=id).reviews
+    serializer = ReviewSerializer(reviews, many=True)
+    return Response(serializer.data, status=status.HTTP_200_OK)
+
 
 @csrf_exempt
 @api_view(['GET'])
@@ -52,7 +71,6 @@ def lugares_busca(request, nome_busca, endereco_busca, bairro_busca, cidade_busc
         for tag in listaTags:
             locaisTemp = Local.objects.filter(atributos__nome__istartswith=tag)
             locais = list(set(locais) & set(locaisTemp))
-
 
     serializer = LocalSerializer(locais, many=True)
     return Response(serializer.data, status=status.HTTP_200_OK)

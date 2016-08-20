@@ -29,9 +29,17 @@ app.controller('BuscaTagsController', function($scope, BuscaTags){
   $scope.estado='_';
   $scope.pais='_';
   $scope.tag='_';
-  var reviews = BuscaTags.query({ id: $scope.id ,nome: $scope.nome, endereco: $scope.endereco, bairro: $scope.bairro, cidade: $scope.bairro, estado: $scope.estado, pais: $scope.pais, tags: $scope.tag }, function() {
-    //nome, endereco, bairro, cidade, estado, pais, tag(separado por virgulas)
-    console.log(reviews);
-  });
-  $scope.espaco = reviews;
+
+
+  $scope.pesquisarTags = function() {
+    var reviews = BuscaTags.query({ id: $scope.id ,nome: $scope.nome, endereco: $scope.endereco, bairro: $scope.bairro, cidade: $scope.bairro, estado: $scope.estado, pais: $scope.pais, tags: $scope.tag }, function() {
+      //nome, endereco, bairro, cidade, estado, pais, tag(separado por virgulas)
+      console.log(reviews);
+    });
+      $scope.espaco = reviews;
+  };
+});
+
+login.controller("logar", function($scope){
+  //login
 });

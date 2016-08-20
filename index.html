@@ -2,7 +2,7 @@
 <html>
   <head>
 
-  <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
 
     <meta charset="utf-8">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -21,7 +21,7 @@
 
     <title>Get a Place</title>
   </head>
-  <body>
+  <body  ng-app="myApp" >
     <nav class="navbar-wrapper">
         <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="navbar-header">
@@ -33,12 +33,11 @@
                 <li><a href="#" class="link">DEPOIMENTOS</a></li>
                 <li><a href="#" class="link">BUSCA</a></li>
                 <li><a href="#" class="link">MAPA</a></li>
+                <li><a href="login.html">LOGIN</a></li>
               </ul>
             </div>
-
         </div>
     </nav>
-
     
       <div class="carousel slide">
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -71,37 +70,42 @@
             </div>
           </div>
 
-          <!-- Left and right controls -->
-          <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-          </a>
-          <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-          </a>
-        </div>
+
+        <!-- Left and right controls -->
+        <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
       </div>
+    </div>
 
-    <main class="container">
-      <form class="form-inline">
-        <h2>Ache um lugar</h2>
-        <div class="attribute-tag">Silencioso</div>
-        <div class="attribute-tag">Com wi-fi</div>
-        <div class="attribute-tag">Com tomadas</div>
-        <p><br />em
-          <input type="text" class="form-control" name="bairro" placeholder="Bairro" /> -
-          <input type="text" class="form-control" name="cidade" placeholder="Cidade" /> -
-          <input type="text" class="form-control" name="estado" placeholder="Estado, ex: SP" /> -
-          <input type="text" class="form-control" name="pais" placeholder="País" />.
-          <button class="form-control">Enviar</button></p>
-      </form>
-    </main>
 
-    <hr />
+    <div ng-controller="BuscaTagsController">
+      <main class="container">
+        <form class="form-inline" ng-submit="pesquisarTags()">
+          <h2>Ache um lugar</h2>
+          <div class="attribute-tag">Silencioso</div>
+          <div class="attribute-tag">Com wi-fi</div>
+          <div class="attribute-tag">Com tomadas</div>
+          <p><br />em
+            <input type="text" class="form-control" name="bairro" placeholder="Bairro" ng-model='bairro' /> -
+            <input type="text" class="form-control" name="cidade" placeholder="Cidade" ng-model='cidade' /> -
+            <input type="text" class="form-control" name="estado" placeholder="Estado, ex: SP" ng-model='estado' /> -
+            <input type="text" class="form-control" name="pais" placeholder="País" ng-model='pais'/>.
+            <button type='submit' class="form-control" >Enviar</button>
+          </p>
+        </form>
+      </main>
 
-    <div class="container" ng-app="myApp">
+      <hr />
+    </div>
+    <div class="container">
       <p>Lugares que o <em>Get a Place</em> achou para você:</p>
+
       <div ng-controller="ResourceController">
         <div class="row">
           <div ng-repeat="x in espacos">
@@ -111,18 +115,12 @@
               <p>{{x.dono.email}}</p>
             </div>
           </div>
-        </div>  
-      </div>
- 
-      <div ng-controller="LocalUnicoController">
+        </div>
       </div>
 
-      <div ng-controller="ReviewsLocalController">
-      </div>
+      <div ng-controller="LocalUnicoController"></div>
 
-      <div ng-controller="BuscaTagsController">
-      </div>
-
+      <div ng-controller="ReviewsLocalController"></div>
     </div>
 
     <footer class="footer">

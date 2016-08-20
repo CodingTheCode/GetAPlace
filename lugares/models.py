@@ -16,6 +16,11 @@ class Local(models.Model):
     pais = models.CharField(max_length=64)
     atributos = models.ManyToManyField('Atributo', null=True, blank=True)
 
+#imagem de um local
+class Imagem(models.Model):
+    foto = models.ImageField(upload_to='img')
+    titulo = models.CharField(max_length=128,blank=True)
+    localRetratado = models.ForeignKey(Local, related_name='foto_local')
 
 # Características de locais
 class Atributo(models.Model):

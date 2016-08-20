@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 import os
 import dj_database_url
 
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
@@ -41,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'corsheaders',
+    'storages',
     'lugares',
 ]
 
@@ -150,3 +152,8 @@ try:
     from local_settings import *
 except ImportError:
     pass
+
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY', 'AKIAJF2UAUWOHEXQDEYQ')
+AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_KEY', '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')
+AWS_STORAGE_BUCKET_NAME = 'getaplace'

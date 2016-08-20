@@ -10,4 +10,4 @@ var app = angular.module('myApp',['ngResource']).factory('Local', function ($res
 ;
 
 
-var login = angular.module('myLogin'){};
+var login = angular.module('myLogin', []);

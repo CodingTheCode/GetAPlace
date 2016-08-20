@@ -40,18 +40,20 @@
         </div>
     </nav>
 
-    <div class="container">
-      <h2>Login</h2>
-      <form>
-        <div class="form-group">
-          <label for="email">Email:</label>
-          <input type="email" class="form-control" id="email" placeholder="Enter email">
-        </div>
-        <div class="form-group">
-          <label for="pwd">Password:</label>
-          <input type="password" class="form-control" id="pwd" placeholder="Enter password">
-        </div>
-      </form>
+    <div ng-controller="logar">
+      <div class="container">
+        <h2>Login</h2>
+        <form>
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" class="form-control" id="email" placeholder="Enter email" ng-model="loginEmail">
+          </div>
+          <div class="form-group">
+            <label for="pwd">Password:</label>
+            <input type="password" class="form-control" id="pwd" placeholder="Enter password" ng-model="loginSenha">
+          </div>
+        </form>
+      </div>
     </div>
   </body>
 </html>

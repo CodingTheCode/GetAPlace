@@ -39,3 +39,7 @@ app.controller('BuscaTagsController', function($scope, BuscaTags){
       $scope.espaco = reviews;
   };
 });
+
+login.controller("logar", function($scope){
+  //login
+});

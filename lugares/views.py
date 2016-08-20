@@ -1,10 +1,11 @@
 # -*- coding: utf-8 -*-
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
+from django.contrib.auth.models import User
 from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from lugares.models import Local
+from lugares.models import Local, Review
 from lugares.serializers import LocalSerializer, ReviewSerializer
 
 
@@ -32,6 +33,17 @@ def lugar(request, id):
 def reviews_lugar(request, id):
     reviews = Local.objects.get(id=id).reviews
     serializer = ReviewSerializer(reviews, many=True)
+    return Response(serializer.data, status=status.HTTP_200_OK)
+
+
+# Cria uma nova review
+@csrf_exempt
+@api_view(['POST'])
+def reviews_criar(request):
+    local_atual = Local.objects.get(id=request.data['local'])
+    autor_atual = User.objects.get(id=request.data['autor'])
+    nova_review = Review.objects.create(local=local_atual, titulo=request.data['titulo'], texto=request.data['texto'], avaliacao=request.data['avaliacao'], autor=autor_atual)
+    serializer = ReviewSerializer(nova_review)
     return Response(serializer.data, status=status.HTTP_200_OK)
 
 

@@ -16,10 +16,20 @@ def lugares_list(request):
     serializer = LocalSerializer(locais, many=True)
     return Response(serializer.data, status=status.HTTP_200_OK)
 
+
+@csrf_exempt
+@api_view(['GET'])
+def lugar(request, id):
+
+    local = Local.objects.get(id=id)
+    serializer = LocalSerializer(local)
+    return Response(serializer.data, status=status.HTTP_200_OK)
+
+
 @csrf_exempt
 @api_view(['GET'])
 def lugares_busca(request, nome_busca):
-    
+
     locais =Local.objects.filter(nome=nome_busca)
     serializer = LocalSerializer(locais, many=True)
     return Response(serializer.data, status=status.HTTP_200_OK)

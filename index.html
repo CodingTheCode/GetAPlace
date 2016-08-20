@@ -93,10 +93,20 @@
       </form>
     </main>
 
+    <div ng-app="myApp" ng-controller="ResourceController">
+      <ul>
+        <li ng-repeat="x in espacos">
+          {{ 'Pais: '+ x.pais +', estado: '+ x.estado +', cidade: '+ x.cidade +', bairro: '+ x.bairro +', endereço: '+ x.endereco +', dono: '+ x.dono.email}}
+        </li>
+      </ul>
+    </div>
+
     <footer class="footer">
       <div class="container panel panel-default">
         <p><span class="glyphicon glyphicon-copyright-mark"></span> 2016 Igor Miyamura, Jonas de Oliveira, Laury Bueno, Leonardo Piccioni, Lucas Covre.</p>
       </div>
     </footer>
+
+
   </body>
 </html>

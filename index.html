@@ -82,9 +82,8 @@
         </a>
       </div>
     </div>
-
-
-    <div ng-controller="BuscaTagsController">
+    
+    <div ng-controller="ResourceController">
       <main class="container">
         <form class="form-inline" ng-submit="pesquisarTags()">
           <h2>Ache um lugar</h2>
@@ -93,8 +92,6 @@
           <a href="#" class="textatt"><div class="attribute-tag visited">COM TOMADAS</div></a>
 
           <p><br />em
-            <input type="text" class="form-control" name="nome" placeholder="Nome" ng-model='nome' /> -
-            <input type="text" class="form-control" name="endereco" placeholder="Endereco" ng-model='endereco' /> -
             <input type="text" class="form-control" name="bairro" placeholder="Bairro" ng-model='bairro' /> -
             <input type="text" class="form-control" name="cidade" placeholder="Cidade" ng-model='cidade' /> -
             <input type="text" class="form-control" name="estado" placeholder="Estado, ex: SP" ng-model='estado' /> -
@@ -103,23 +100,23 @@
           </p>
         </form>
       </main>
-
+    
       <hr />
-    </div>
-    <div class="container">
-      <p>Espaços que o <em>Get a Place</em> achou para você:</p>
 
-          <div ng-controller="ResourceController">
-            <div class="row">
-              <div ng-repeat="x in espacos">
-                <a ng-click="atualizaId($index)" class="lugares">
-                  <div class="col-sm-4 well">
-                    <p class="result-title">{{x.bairro}} - {{x.cidade}} ({{x.estado}}) - {{x.pais}}</p>
-                    <p>{{x.endereco}}</p>
-                  </div>
-                </a>
-              </div>
+      <div class="container">
+        <p>Espaços que o <em>Get a Place</em> achou para você:</p>
+
+          
+          <div class="row">
+            <div ng-repeat="x in espacos">
+              <a ng-click="atualizaId($index)" class="lugares">
+                <div class="col-sm-4 well">
+                  <p class="result-title">{{x.bairro}} - {{x.cidade}} ({{x.estado}}) - {{x.pais}}</p>
+                  <p>{{x.endereco}}</p>
+                </div>
+              </a>
             </div>
+            
 
             <hr />
             
@@ -133,7 +130,9 @@
                 <li>{{x.nome}}</li>
               </ul>  
             </div>
+          </div>
         </div>
+      </div>
 
       <div ng-controller="ReviewsLocalController">
         <br />

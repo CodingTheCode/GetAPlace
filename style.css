@@ -16,6 +16,8 @@
 
 .navbar{
 	background:#442684 !important;
+	opacity:0.75;
+	box-shadow: 0px 0px 20px #332454;
 }
 
 .navbar a{
@@ -84,4 +86,14 @@ footer{
 
 footer p{
 	padding:10px;
+}
+
+a.link:hover{
+	background-color:#FFFFFF !important;
+	color:#B800FF !important;
+}
+
+.carousel-inner .item .bg-textoimg {
+	background-color: rgba(111,111,111,0.5);
+	padding: 20px;
 }

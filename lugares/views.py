@@ -9,16 +9,32 @@ from lugares.models import Local, Review
 from lugares.serializers import LocalSerializer, ReviewSerializer
 from django.views.generic.base import TemplateView
 
+import json
+
+
 class OnePageAppView(TemplateView):
     template_name = 'index.html'
 
-@csrf_exempt
-@api_view(['GET'])
-def lugares_list(request):
 
-    locais = Local.objects.all()[:30]
-    serializer = LocalSerializer(locais, many=True)
-    return Response(serializer.data, status=status.HTTP_200_OK)
+@csrf_exempt
+@api_view(['GET', 'POST'])
+def lugares(request):
+
+    if(request.method == 'GET'):
+        locais = Local.objects.all()[:30]
+        serializer = LocalSerializer(locais, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
+    elif(request.method == 'POST'):
+        data = json.loads(request.body)
+        dono_atual = User.objects.get(id=data['dono'])
+        novo_local = Local.objects.create(dono=dono_atual, nome=data['nome'], endereco=data['endereco'], bairro = data['bairro'], cidade=data['cidade'], estado=data['estado'], pais=data['pais'])
+
+        # Atributos
+        #
+
+        serializer = LocalSerializer(novo_local)
+        return Response(serializer.data, status=status.HTTP_200_OK)
 
 
 @csrf_exempt

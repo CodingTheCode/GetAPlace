@@ -1,13 +1,13 @@
 app.controller('ResourceController', function($scope, Local, BuscaTags) {
   var locais = Local.query(function() {
-    //console.log(locais);
+    console.log(locais);
   });
   $scope.espacos = locais;
 
   $scope.atualizaId = function(id){
     $scope.espaco = $scope.espacos[id];
   };
-  
+
   $scope.pesquisarTags = function() {
     if($scope.id==null) $scope.id='_';
     if($scope.nome==null) $scope.nome='_';
@@ -17,15 +17,15 @@ app.controller('ResourceController', function($scope, Local, BuscaTags) {
     if($scope.estado==null) $scope.estado='_';
     if($scope.pais==null) $scope.pais='_';
     if($scope.tag==null) $scope.tag='_';
-    
+
     var reviews = BuscaTags.query({ id: $scope.id ,nome: $scope.nome, endereco: $scope.endereco, bairro: $scope.bairro, cidade: $scope.cidade, estado: $scope.estado, pais: $scope.pais, tags: $scope.tag }, function() {
-      
+
       //nome, endereco, bairro, cidade, estado, pais, tag(separado por virgulas)
       console.log(reviews);
       $scope.espacos = reviews;
     });
   };
-  
+
 });
 
 app.controller('ReviewsLocalController', function($scope, ReviewsLocal){

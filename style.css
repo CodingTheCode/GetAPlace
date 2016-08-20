@@ -94,7 +94,7 @@ footer p{
 	padding:10px;
 }
 
-a.link:hover{
+a.scroll:hover{
 	background-color:#FFFFFF !important;
 	color:#B800FF !important;
 }
@@ -163,5 +163,23 @@ form.form-inline p {
 }
 
 .rodape {
+	text-align:center;	
+}
+
+.login {
+	margin-top:100px;	
+}
+
+.form-control {
+	margin-top: 10px;	
+}
+
+.detalhes {
+	text-align:center;
+	margin-left:850px;
+		
+}
+
+.lug {
 	text-align:center;	
 }
